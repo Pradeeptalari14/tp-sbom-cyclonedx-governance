@@ -1,0 +1,13 @@
+apiVersion: governance.cyclonedx.org/v1
+kind: SBOMAuditPolicy
+metadata:
+  name: cyclonedx-governance
+spec:
+  specVersion: "1.5"
+  formats: ["cyclonedx-json", "spdx-json"]
+  scanner:
+    engine: "syft"
+    vulnerabilityMatcher: "grype"
+    epssThreshold: 0.05
+    maxCvssScore: 7.0
+  failOnSeverity: ["CRITICAL", "HIGH"]
